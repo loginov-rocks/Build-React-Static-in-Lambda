@@ -1,0 +1,9 @@
+artifacts
+dist
+node_modules
+tmp
+
+.env
+
+.git
+.gitignore

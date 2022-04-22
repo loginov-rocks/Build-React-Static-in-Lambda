@@ -1,6 +1,9 @@
 import axios from 'axios'
+import { tmpdir } from 'os'
 import path from 'path'
 // import { Post } from './types'
+
+const pathsBase = process.env.LAMBDA_USE_TMPDIR === 'true' ? tmpdir() + '/' : '';
 
 // Typescript support in static.config.js is not yet supported, but is coming in a future update!
 
@@ -25,6 +28,11 @@ export default {
         })),
       },
     ]
+  },
+  paths: {
+    buildArtifacts: pathsBase + 'artifacts',
+    dist: pathsBase + 'dist',
+    temp: pathsBase + 'tmp',
   },
   plugins: [
     'react-static-plugin-typescript',
