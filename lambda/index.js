@@ -9,13 +9,13 @@ const deployFilesToS3 = require('./deployFilesToS3');
 const s3Configuration = {};
 
 if (process.env.LAMBDA_USE_POLICY !== 'true') {
-  s3Configuration.accessKeyId = process.env.LAMBDA_USE_AWS_ACCESS_KEY_ID;
-  s3Configuration.secretAccessKey = process.env.LAMBDA_USE_AWS_SECRET_ACCESS_KEY;
+  s3Configuration.accessKeyId = process.env.LAMBDA_ACCESS_KEY_ID;
+  s3Configuration.secretAccessKey = process.env.LAMBDA_SECRET_ACCESS_KEY;
 }
 
 const s3 = new S3(s3Configuration);
 
-const bucketName = process.env.LAMBDA_WEB_APP_S3_BUCKET_NAME;
+const bucketName = process.env.LAMBDA_S3_BUCKET_NAME;
 const distDirectoryPath = process.env.LAMBDA_USE_TMPDIR === 'true' ? tmpdir() + '/dist' : path.resolve('dist');
 
 const stdout = (data) => {

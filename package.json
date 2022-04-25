@@ -1,6 +1,7 @@
 {
-  "name": "react-static-example-typescript",
-  "private": true,
+  "name": "@loginov-rocks/build-react-static-in-lambda",
+  "version": "0.1.0",
+  "description": "How to build and deploy React Static project in Lambda",
   "scripts": {
     "start": "react-static start",
     "stage": "react-static build --staging",
@@ -9,6 +10,16 @@
     "export": "react-static export",
     "serve": "serve dist -p 3000 -s"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loginov-rocks/Build-React-Static-in-Lambda.git"
+  },
+  "author": "Danila Loginov <danila@loginov.rocks> (https://loginov.rocks)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loginov-rocks/Build-React-Static-in-Lambda/issues"
+  },
+  "homepage": "https://github.com/loginov-rocks/Build-React-Static-in-Lambda",
   "dependencies": {
     "@reach/router": "^1.3.4",
     "axios": "^0.21.1",
