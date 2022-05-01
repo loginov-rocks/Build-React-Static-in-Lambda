@@ -1,6 +1,9 @@
 # Build React Static in Lambda
 
-How to build and deploy React Static project in Lambda: Medium.
+Implementation example for Static Site Generation in Lambda with React Static:
+[Medium](https://medium.com/@loginov-rocks/static-site-generation-in-lambda-with-react-static-bdba551e4fe4)
+
+![AWS Reference Infrastructure Diagram](https://raw.githubusercontent.com/loginov-rocks/Build-React-Static-in-Lambda/main/docs/AWS-Reference-Infrastructure-Diagram.png)
 
 ## Configuration
 
@@ -13,7 +16,7 @@ How to build and deploy React Static project in Lambda: Medium.
 
 #### Permissions
 
-Configure IAM policy and create an AWS user (for local usage):
+Configure the policy:
 
 ```json
 {
@@ -23,7 +26,7 @@ Configure IAM policy and create an AWS user (for local usage):
       "Sid": "VisualEditor0",
       "Effect": "Allow",
       "Action": "s3:PutObject",
-      "Resource": "arn:aws:s3:::build-react-static-in-lambda/*"
+      "Resource": "arn:aws:s3:::${LAMBDA_S3_BUCKET_NAME}/*"
     }
   ]
 }
@@ -31,17 +34,17 @@ Configure IAM policy and create an AWS user (for local usage):
 
 #### Environment Variables
 
-* `LAMBDA_ACCESS_KEY_ID` and `LAMBDA_SECRET_ACCESS_KEY` - credentials for the AWS user to deploy files, convenient for
-  local development usage,
+* `LAMBDA_ACCESS_KEY_ID` and `LAMBDA_SECRET_ACCESS_KEY` - credentials for the AWS user to deploy files, for local
+  development usage,
 * `LAMBDA_S3_BUCKET_NAME` - S3 bucket name to deploy files to,
-* `LAMBDA_USE_POLICY` - to use (`true`) or not to use (`false`) IAM policy instead of the AWS user, convenient within
-  the actual Lambda environment,
+* `LAMBDA_USE_POLICY` - to use (`true`) or not to use (`false`) IAM policy instead of the AWS user, convenient in the
+  actual Lambda environment,
 * `LAMBDA_USE_TMPDIR` - to use (`true`) or not to use (`false`) temporary directory for the build artifacts, must
-  be `true` within the actual Lambda environment.
+  be `true` in the actual Lambda environment, can be `false` for local development usage.
 
 ## Development
 
-Make sure to set up environment variables in `.env` file (see `.env.example`).
+Make sure to set up environment variables in the `.env` file (see `.env.example`).
 
 ### Docker
 
