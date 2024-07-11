@@ -1,7 +1,6 @@
 # Build React Static in Lambda
 
-Implementation example for Static Site Generation in Lambda with React Static:
-[Medium](https://medium.com/@loginov-rocks/static-site-generation-in-lambda-with-react-static-bdba551e4fe4)
+Static Site Generation in Lambda with React Static: [Medium](https://loginov-rocks.medium.com/static-site-generation-in-lambda-with-react-static-bdba551e4fe4)
 
 ![AWS Reference Infrastructure Diagram](https://raw.githubusercontent.com/loginov-rocks/Build-React-Static-in-Lambda/main/docs/AWS-Reference-Infrastructure-Diagram.png)
 
